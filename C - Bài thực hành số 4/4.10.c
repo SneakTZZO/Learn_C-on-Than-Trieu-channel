@@ -7,7 +7,7 @@ void input_arr_and_n(int* arr, int* n) {
 	{
 		printf("import n > 0: ");
 		scanf("%d", n);
-	} while (n < 1);
+	} while (*n < 1);
 	for (int i = 0; i < *n; i++) {
 		printf("\narr[%d] = ", i);
 		scanf("%d", &arr[i]);

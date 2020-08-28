@@ -34,6 +34,7 @@ void display(int* arr, int n) {
 	}
 }
 
+
 int main() {
 	int n;
 	int arr[100];
@@ -41,3 +42,4 @@ int main() {
 	display(arr, n);
 	return 0;
 }
+//

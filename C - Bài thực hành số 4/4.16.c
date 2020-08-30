@@ -56,27 +56,31 @@ int seek_indexes_and_length_of_range(int* arr, int n, int *b, int *m, int *lengt
 
 void display(int* arr, int n, int* b, int m, int length)
 {
-	if (length == n)
+	
+	if (length != 1)
 	{
-		for (int i = 0; i < n; i++)
+		if (length == n)
 		{
-			printf("%d ", arr[i]);
-		}
-	}
-	else
-		if (length != 1)
-		{
-			for (int j = 0; j <= m; j++)
+			printf("starting from arr[0]: ");
+			for (int i = 0; i < n; i++)
 			{
-				for (int i = b[j]; i < b[j] + length; i++)
-				{
-					printf("%d ", arr[i]);
-				}
-				puts("");
+				printf("%d ", arr[i]);
 			}
 		}
 		else
-			printf("NOT FOUND");
+		for (int j = 0; j <= m; j++)
+		{
+			printf("starting from arr[%d]: ", b[j]);
+			for (int i = b[j]; i < b[j] + length; i++)
+			{
+				printf("%d ", arr[i]);
+
+			}
+			puts("");
+		}
+	}
+	else
+		printf("NOT FOUND");
 }
 
 int main()

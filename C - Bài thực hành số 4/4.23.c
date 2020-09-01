@@ -61,11 +61,11 @@ int main()
 	else 
 	{
 		product_of_2_matrices(arr, b, c, m, narr, k);
-		printf("\nArray arr: \n");
+		printf("\nArray arr %dx%d: \n", m, narr);
 		display_2_dimensional_arry(arr, m, narr);
-		printf("\nArray b: \n");
+		printf("\nArray b %dx%d: \n", narr, k);
 		display_2_dimensional_arry(b, nb, k);
-		printf("\nArray C: \n");
+		printf("\nArray c %dx%d: \n", m, k);
 		display_2_dimensional_arry(c, m, k);
 	}
 	return 0;

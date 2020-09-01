@@ -1,3 +1,4 @@
+﻿//Hãy tính tổng S(x) = P(x) + Q(x).In kết quả đa thức tổng ra màn hình hoặc file.
 #include<stdio.h>
 
 void import_coefficients_of_Px(int* arr, int* n) {

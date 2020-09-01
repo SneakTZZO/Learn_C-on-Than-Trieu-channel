@@ -32,7 +32,7 @@ void input_arr1_and_n(int* arr, int* n)
 	{
 		printf("import n > 0: n = ");
 		scanf("%d", n);
-	} while (n < 1);
+	} while (*n < 1);
 	for (int i = 0; i < *n; i++)
 	{
 		printf("\narr[%d] = ", i);

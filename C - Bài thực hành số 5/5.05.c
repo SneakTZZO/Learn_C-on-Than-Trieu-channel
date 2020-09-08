@@ -52,8 +52,9 @@ int main()
 	char str[100];
 	fgets(str, 99, stdin);
 	short length = strlen(str);
+	puts("\ndiscrimination\n");
 	a(str, length);
-	puts("");
+	puts("\nindiscrimination\n");
 	b(str, length);
 	return 0;
 }

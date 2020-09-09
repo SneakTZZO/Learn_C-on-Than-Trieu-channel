@@ -1,4 +1,5 @@
 ﻿//Hãy chuẩn hoá một xâu ký tự cho trước : loại bỏ các dấu cách thừa
+#include<stdio.h>
 #include<string.h>
 #include<ctype.h>
 

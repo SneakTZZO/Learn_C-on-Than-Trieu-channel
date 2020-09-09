@@ -59,7 +59,7 @@ void remove_space(char* str)
 int main()
 {
 	char str[100];
-	fgets(str, 99, stdin);
+	gets(str);
 	remove_space(str);
 	return 0;
 }

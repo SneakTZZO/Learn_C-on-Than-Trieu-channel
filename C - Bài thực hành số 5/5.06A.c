@@ -3,64 +3,62 @@
 #include<string.h>
 #include<ctype.h>
 
-void remove_space(char* str)
+void remove_space_below(char* str)
 {
-	short length = strlen(str) - 1;
-	// remove the space below
-	if (isblank(str[length - 1]))
+	short length = strlen(str);
+	short i = length - 1;
+	while (isblank(str[i]))
 	{
-		for (short i = length - 1; i > 0; i--)
-		{
-			if (isgraph(str[i]))
-			{
-				str[i + 1] = "\0";
-				length = i + 1;
-				break;
-			}
-		}
+		str[i--] = '\0';
 	}
-	// delete the space above
+}
+
+void delete_space_above(char* str)
+{
+	short length = strlen(str);
+	short i = 0;
+	while (isblank(str[i]))
+	{
+		i++;
+	}
 	if (isblank(str[0]))
-	{
-		for (short i = 0; i < length; i++)
+		for (short j = 0; j <= length - i; j++)
 		{
-			if (isgraph(str[i]))
-			{
-				for (int j = 0; j < length - i; j++)
-				{
-					str[j] = str[j + i];
-				}
-				str[length - i] = '\0';
-				length -= i;
-				break;
-			}
+			str[j] = str[j + i];
 		}
-	}
-	// remove the space in the middle
+}
+
+void remove_space_middle(char *str)
+{
+	short length = strlen(str);
 	short mark;
-	for (short i = length - 1; i > 0 ; i--)
+	for (short i = length - 2; i > 1; i--)
 	{
 		if (isblank(str[i]) && isblank(str[i - 1]))
 		{
-			for (short j = i; isblank(str[j - 1]); j--)
+			mark = i - 1;
+			while (isblank(str[mark]) && isblank(str[mark - 1]))
 			{
-				mark = j;
+				mark--;
 			}
-			length -= i - mark + 1;
-			for (int j = mark; j < length; j++)
+			short j = mark;
+			while (i <= length)
 			{
-				str[j] = str[j + i - mark + 1];
+				str[++j] = str[++i];
 			}
-			str[length + 1] = '\0';
+			i = mark - 1;
+			length = strlen(str);
 		}
 	}
-	puts(str);
 }
 
 int main()
 {
 	char str[100];
 	gets(str);
-	remove_space(str);
+	remove_space_below(str);
+	delete_space_above(str);
+	remove_space_middle(str);
+	puts(str);
 	return 0;
 }

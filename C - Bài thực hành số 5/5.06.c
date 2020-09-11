@@ -1,4 +1,4 @@
-﻿//Hãy chuẩn hoá một xâu ký tự cho trước : loại bỏ các dấu cách thừa
+﻿//Hãy chuẩn hoá một xâu ký tự cho trước : loại bỏ các dấu cách thừa + chuyển ký tự đầu mỗi từ thành chữ hoa, các ký tự khác thành chữ thường
 #include<stdio.h>
 #include<string.h>
 #include<ctype.h>
@@ -52,6 +52,32 @@ void remove_space_middle(char *str)
 	}
 }
 
+void upper_first_digit_of_word(char* str)
+{
+	short length = strlen(str);
+	str[0] = toupper(str[0]);
+	for (int i = 1; i < length - 1; i++)
+	{
+		if (isblank(str[i]))
+		{
+			str[i + 1] = toupper(str[i + 1]);
+		}
+	}
+}
+
+void lower_below_digit(char* str)
+{
+	short length = strlen(str);
+	for (int i = 0; i < length; i++)
+	{
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			while (isalpha(str[++i]))
+			{
+				str[i] = tolower(str[i]);
+			}
+	}
+}
+
 int main()
 {
 	char str[100];
@@ -59,6 +85,8 @@ int main()
 	remove_space_below(str);
 	delete_space_above(str);
 	remove_space_middle(str);
+	upper_first_digit_of_word(str);
+	lower_below_digit(str);
 	puts(str);
 	return 0;
 }
